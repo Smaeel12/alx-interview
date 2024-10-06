@@ -8,8 +8,8 @@ def pascal_triangle(n: int):
     if (n <= 0):
         return []
 
-    rows = [[1]]
-    for r in range(1, n):
+    rows = []
+    for r in range(n):
         p = r - 1
         rows.append([1 if c == 0 or c == r else rows[p][c - 1] + rows[p][c]
                     for c in range(r + 1)])
