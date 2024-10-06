@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-from typing import List
 """Pascal's Triangle"""
 
 
-def pascal_triangle(n: int) -> List[int]:
+def pascal_triangle(n: int):
     """Returns a list of lists of integers representing *
     the Pascal's triangle of n"""
     if (n <= 0):
