@@ -11,13 +11,10 @@ def canUnlockAll(boxes):
     keys = boxes[0]
 
     for k in keys:
-        if k not in opened:
+        if k not in opened and k < len(boxes):
             opened.append(k)
-            try:
-                keys.extend([newkey for newkey in boxes[k]
+            keys.extend([newkey for newkey in boxes[k]
                              if newkey not in opened])
-            except Exception:
-                pass
     if (len(opened) == len(boxes)):
         return True
     return False
