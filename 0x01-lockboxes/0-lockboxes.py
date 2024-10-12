@@ -1,22 +1,18 @@
 #!/usr/bin/python3
-""" Lockboxes """
-
+# Adjacency matrices
+from collections import deque
 
 def canUnlockAll(boxes):
-    """check if all boxes can be opened"""
-    if not boxes:
-        return False
+    opened = [0]
+    keys = boxes[0]
 
-    n = len(boxes)
-    visited = [False] * n
-    visited[0] = True
-    queue = [0]
-
-    while queue:
-        current_box = queue.pop(0)
-        for key in boxes[current_box]:
-            if key >= 0 and key < n and not visited[key]:
-                visited[key] = True
-                queue.append(key)
-
-    return all(visited)
+    for k in keys:
+        if k not in opened:
+            opened.append(k)
+            try:
+                keys.extend([newkey for newkey in boxes[k] if newkey not in opened])
+            except:
+                pass
+    if (len(opened) == len(boxes)):
+        return True
+    return False
