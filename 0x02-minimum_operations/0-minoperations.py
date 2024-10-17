@@ -27,7 +27,6 @@ def minOperations(n: int) -> int:
                 sum += i
             return sum
         if i in memo or is_prime(i):
-            print(memo, i)
             if i not in memo:
                 memo.append(i)
             if n % i == 0:
