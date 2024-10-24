@@ -5,12 +5,14 @@ Log parsing script
 
 import sys
 
+
 def initialize_stats() -> dict:
     """
     Initialize the statistics dictionary for log parsing.
     """
     codes = ["200", "301", "400", "401", "403", "404", "405", "500"]
     return {code: 0 for code in codes}
+
 
 def print_stats(stats: dict, file_size: int) -> None:
     """
@@ -20,6 +22,7 @@ def print_stats(stats: dict, file_size: int) -> None:
     for code, count in sorted(stats.items()):
         if count > 0:
             print("{}: {}".format(code, count))
+
 
 def parse_line(line: str, stats: dict) -> int:
     """
@@ -41,6 +44,7 @@ def parse_line(line: str, stats: dict) -> int:
         pass  # Ignore errors for invalid file size
 
     return file_size
+
 
 def main():
     """
@@ -66,6 +70,6 @@ def main():
         print_stats(stats, total_file_size)
         raise
 
+
 if __name__ == "__main__":
     main()
-
